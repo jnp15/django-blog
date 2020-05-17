@@ -1,4 +1,4 @@
-from django.db import models  # <-- This is already in the file
+from django.db import models
 from django.contrib.auth.models import User
 
 # blogging/models.py
@@ -29,10 +29,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+#    name = models.CharField(max_length=128)
     name = models.CharField(max_length=128)
     description = models.TextField(blank=True)
-    posts = models.ManyToManyField(Post, blank=True, related_name='categories')
+    posts = models.ManyToManyField(Post, blank=True,)
 
 
-    class Meta:
-        verbose_name_plural = 'Categories'
+
+    #post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    #category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+

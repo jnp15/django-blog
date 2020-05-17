@@ -1,6 +1,6 @@
+from blogging.models import Post, Category
 from django.test import TestCase
 from django.contrib.auth.models import User
-from blogging.models import Post, Category # add this import at the top
 import datetime
 from django.utils.timezone import utc
 
@@ -30,7 +30,7 @@ class FrontEndTestCase(TestCase):
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
-                self.assertContains(resp, title, count=2)
+                self.assertContains(resp, title, count=1)
             else:
                 self.assertNotContains(resp, title)
 
@@ -46,22 +46,14 @@ class FrontEndTestCase(TestCase):
                 self.assertEqual(resp.status_code, 404)
 
 class PostTestCase(TestCase):
-    # ...
 
-    # add this test method to the PostTestCase
-    
     def test_string_representation(self):
         expected = "This is a title"
         p1 = Post(title=expected)
         actual = str(p1)
         self.assertEqual(expected, actual)
 
-    # another import
 
-
-
-
-# and the test case and test
 class CategoryTestCase(TestCase):
 
     def test_string_representation(self):

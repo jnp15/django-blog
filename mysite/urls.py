@@ -5,8 +5,8 @@ from django.urls import path, include  # <-- Make sure you have both of these im
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    path('', include('blogging.urls')),  # <-- this didn't seem to work
-    path('polling/', include('polling.urls')),  # <-- Add this
+    path('', include('blogging.urls')),
+    path('polling/', include('polling.urls')),
     path('blogging/', include('blogging.urls')),  # <-- I added this too
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(template_name='login.html'), name="login"),
